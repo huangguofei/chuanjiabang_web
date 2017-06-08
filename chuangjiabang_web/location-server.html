@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-定位服务</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.map {
+				width: 100%;
+				/*height: 600px;*/
+			}
+			
+			.explain {
+				position: fixed;
+				top: 130px;
+				left: 230px;
+				width: 180px;
+				height: 30px;
+				line-height: 30px;
+				background: #fff;
+				opacity: 0.8;
+			}
+			
+			.explain i {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				margin-bottom: -5px;
+				margin-left: 5px;
+			}
+			
+			.blue {
+				background: #1069E3;
+			}
+			
+			.green {
+				background: #008100;
+			}
+			
+			.red {
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="map" id="map">
+			</div>
+			<p class="explain"><span><i class="blue"></i>海科</span><i class="green"></i>供应商</span><i class="red"></i>客户</span>
+			</p>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=tBjsnSuzhKrdsAL1oqEQ1hIG&v=1.0"></script>
+	<script>
+		$(function() {
+			$(".map").height($(window).height() - $(".top").outerHeight(true) - $(".logo").outerHeight(true) - 2);
+			initMap();
+		});
+
+		function initMap() {
+			var map = new BMap.Map("map"); // 创建Map实例
+			var point = new BMap.Point(116.404, 39.915); // 创建点坐标
+			map.centerAndZoom(point, 5); // 初始化地图,设置中心点坐标和地图级别。
+			map.addControl(new BMap.ZoomControl()); //添加地图缩放控件
+			map.enableScrollWheelZoom(true);
+		}
+	</script>
+
+</html>

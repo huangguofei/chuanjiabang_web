@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-选择人员</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.main table tr td{
+				border: 0;
+				width: 20%;
+			}
+			.main td p{
+				border-bottom: 1px solid #F3F3F3;
+				width: 80%;
+				height: 30px;
+				line-height: 30px;
+				margin: 0;
+			}
+			.main td img{
+				width: 30px;
+				margin-left: 15px;
+			}
+			.btn-post{
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="main">
+				<h4>选择人员：</h4>
+				<table class="table table-responsive">
+					<tr><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td></tr>
+					<tr><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td><td><p>张三</p></td></tr>
+				</table>
+				<input type="button" value="确认派单" class="btn btn-primary btn-post " />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+<script>
+	$(function(){
+		$(".main table td p").click(function(){
+			if($(this).children().is("img")){
+				$(this).children("img").remove();
+			}else{
+				$(this).append("<img class='pull-right' src=\"images/select_5.png\">");
+			}
+		});
+	});
+	
+	
+	
+</script>
+</html>

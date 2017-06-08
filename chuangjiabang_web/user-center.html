@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-个人中心</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			html,
+			body,
+			.content,
+			.main-right {
+				height: 100%;
+			}
+			
+			.content {
+				max-width: 1000px;
+				min-width: 600px;
+				/*height: auto;*/
+				margin: 0 auto;
+				background: #fff;
+				padding: 0 20px;
+			}
+			
+			.top {
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				margin: 0 auto;
+				padding: 0 10px;
+				background: #F7F7F7;
+			}
+			
+			.top p {
+				margin-bottom: 0;
+			}
+			
+			.top i {
+				font-style: inherit;
+			}
+			
+			.message {
+				margin-right: 5px;
+			}
+			
+			.logo {
+				margin: 20px 0 10px 0;
+			}
+			
+			.logo-img {
+				width: 50px;
+				height: auto;
+			}
+			
+			.main {
+				height: calc(100% - 110px);
+				position: relative;
+			}
+			
+			.main-left {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 180px;
+			}
+			
+			.avatar {
+				width: 150px;
+				height: 150px;
+				border-radius: 3px;
+				margin: 0 auto;
+				text-align: center;
+				border: 1px solid #EAEAEA;
+				font-size: 20px;
+			}
+			
+			.avatar img {
+				width: 70px;
+				height: 70px;
+				margin-top: 40px;
+			}
+			
+			h4 {
+				margin-bottom: 20px;
+			}
+			
+			.switch-menu {
+				padding-left: 60px;
+				/*margin-top: 20px;*/
+			}
+			
+			.switch-menu li {
+				list-style: none;
+				cursor: pointer;
+			}
+			
+			.switch-menu li[data-index].active {
+				color: red;
+			}
+			
+			.switch-menu li img {
+				width: 20px;
+			}
+			
+			.switch-menu label {
+				cursor: pointer;
+			}
+			
+			.account-set-menu {
+				padding-left: 20px;
+				display: none;
+			}
+			
+			.main-right {
+				height: ;
+				margin-left: 200px;
+			}
+			
+			.main-left h5 {
+				text-align: center;
+				color: #107AE3;
+			}
+			
+			.main-right>div {
+				background: #F7F7F7;
+				padding: 70px;
+				height: 100%;
+			}
+			
+			.main-right input[type=button] {
+				margin-left: 20%;
+				margin-top: 30px;
+			}
+			
+			.info-title {
+				display: inline-block;
+				width: 70px;
+			}
+			
+			.input-inline {
+				display: inline-block;
+				width: 300px;
+			}
+			
+			.edit-password .info-title {
+				width: 85px;
+				text-align: right;
+			}
+			
+			.edit-phone .get-code,
+			.edit-email .get-code {
+				position: relative;
+				left: -100px;
+				text-decoration: none;
+			}
+			
+			.main-right .collect-list {
+				padding: 10px;
+				background: #fff;
+			}
+			
+			.collect-list ul {
+				zoom: 1;
+				padding: 0;
+			}
+			
+			.collect-list ul:after {
+				content: "";
+				height: 0;
+				display: block;
+				visibility: hidden;
+				clear: both;
+			}
+			
+			.collect-list li {
+				float: left;
+				width: 180px;
+				height: 260px;
+				margin-left: 10px;
+				position: relative;
+			}
+			
+			.collect-list li .show-img {
+				width: 180px;
+				height: 180px;
+			}
+			
+			.collect-list li h5 {
+				margin-bottom: 0;
+			}
+			
+			.collect-list li:hover .delete {
+				display: inline-block;
+			}
+			
+			.delete {
+				position: absolute;
+				right: 10px;
+				top: 0;
+				width: 20px;
+				height: 20px;
+				background: #107AE3;
+				display: none;
+			}
+			
+			.delete img {
+				width: 20px;
+				height: 20px;
+			}
+			
+			.price b {
+				font-size: 20px;
+			}
+			
+			.idea-inform textarea.idea-text {
+				width: 500px;
+				height: 250px;
+				resize: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name">
+				</a>
+			</div>
+			<div class="main">
+				<div class="main-left">
+					<div class="avatar"><img src="images/kefu.png">
+						<p class="self-name">赵本山</p>
+					</div>
+					<h5>全部功能</h5>
+					<ul class="switch-menu">
+						<li><label class="account-set" data-off=0>账号设置<img class="zoom-icon" src="images/down_1.png" ></label>
+							<ul class="account-set-menu">
+								<li data-index="0">个人资料</li>
+								<li data-index="1">修改密码</li>
+								<li data-index="2">绑定手机号</li>
+								<li data-index="3">绑定邮箱</li>
+							</ul>
+						</li>
+						<li data-index="4"><label>收藏商品</label></li>
+						<li data-index="5"><label>意见反馈</label></li>
+					</ul>
+				</div>
+				<div class="main-right">
+					<div class="self-info">
+						<!--基础信息-->
+						<h4 class="title">您的基础信息：</h4>
+						<p><span class="info-title">会&nbsp;&nbsp;员&nbsp;&nbsp;名：</span><span bind="nickname">张三</span></p>
+						<p><span class="info-title">姓　　名：</span><span bind="username">张三</span></p>
+						<p><span class="info-title">性　　别：</span><span bind="sex">张三</span></p>
+						<p><span class="info-title">公司名称：</span><span bind="company">张三</span></p>
+						<p><span class="info-title">公司职务：</span><span bind="post">张三</span></p>
+						<p><span class="info-title">所管船数：</span><span bind="shipCount">张三</span></p>
+						<p><span class="info-title">绑定手机：</span><span bind="phone">张三</span></p>
+						<p><span class="info-title">绑定邮箱：</span><span bind="email">张三</span></p>
+					</div>
+					<div class="self-info-edit hide" data-index="0">
+						<!--修改基本信息-->
+						<p><span class="info-title text-right">会员名：</span><span bind="nickname">张三</span></p>
+						<p><span class="info-title text-right">姓 名：</span><span bind="username">张三</span></p>
+						<p><span class="info-title text-right">性 别：</span><span bind="sex">张三</span></p>
+						<p><span class="info-title text-right">公司名称：</span>
+							<input bind="company" nulltip="公司名称" type="text" placeholder="公司名称" class="form-control input-inline cmp-name"></p>
+						<p><span class="info-title text-right">公司地址：</span>
+							<input bind="address" nulltip="公司地址" type="text" placeholder="公司地址" class="form-control input-inline cmp-loaction"></p>
+						<p><span class="info-title text-right">所管船数：</span>
+							<input bind="shipCount" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')" nulltip="所管船数" type="text" placeholder="所管船数" class="form-control input-inline cmp-loaction">条</p>
+						<input type="button" class="btn btn-primary" value="确认" />
+					</div>
+					<div class="edit-password hide" data-index="1">
+						<!--修改密码-->
+						<p><span class="info-title">旧密码：</span>
+							<input type="password" data-toggle="tooltip" data-placement="right" title="密码不能为空" nulltip="旧密码" class="form-control input-inline old-password" />
+						</p>
+						<p><span class="info-title">新密码：</span>
+							<input type="password" data-toggle="tooltip" data-placement="right" title="两次密码不一致" nulltip="新密码" class="form-control input-inline new-password" /></p>
+
+						<p><span class="info-title">确认旧密码：</span>
+							<input type="password" class="form-control input-inline repeat-possword" /></p>
+						<input type="button" class="btn btn-primary" value="确认" />
+					</div>
+					<div class="edit-phone hide" data-index="2">
+						<!--修改手机-->
+						<p><span class="info-title text-right">当前手机：</span><span class="old-phone">135******0123</span></p>
+						<p><span class="info-title text-right">新手机：</span>
+							<input nulltip="手机号" type="text" maxlength="11" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')" class="form-control input-inline new-phone" /></p>
+						<p><span class="info-title text-right">验证码：</span>
+							<input nulltip="验证码" type="text" maxlength="6" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')" class="form-control input-inline code" />
+							<a href="javascript:;" iswaiting=false class="get-code">|　<span>获取验证码</span></a>
+						</p>
+						<input type="button" class="btn btn-primary" value="确认" />
+					</div>
+					<div class="edit-email hide" data-index="3">
+						<!--修改邮箱-->
+						<p><span class="info-title text-right">当前邮箱：</span><span class="old-email">111******@qq.com</span></p>
+						<p><span class="info-title text-right">新邮箱：</span>
+							<input nulltip="新邮箱" type="text" class="form-control input-inline new-email" /></p>
+						<p class="hide"><span class="info-title text-right">验证码：</span>
+							<input type="text" maxlength="6" class="form-control input-inline code" />
+							<a href="javascript:;" iswaiting=false class="get-code">|　<span>获取验证码</span></a>
+						</p>
+						<input type="button" class="btn btn-primary" value="确认" />
+					</div>
+					<div class="collect-list hide" data-index="4">
+						<!--收藏商品列表-->
+						<ul>
+							<li>
+								<img class="img-thumbnail show-img" src="images/img_none.png" />
+								<h5>商品名称商品名称商品名称商品名称</h5>
+								<span class="price col-red">￥<b>220</b></span>
+								<a href="javascript:;" class="delete"><img src="images/delete.png" /></a>
+							</li>
+						</ul>
+					</div>
+					<div class="idea-inform hide" data-index="5">
+						<!--意见反馈-->
+						<h5>意见反馈:</h5>
+						<textarea name="" class="form-control idea-text" placeholder="请输入意见"></textarea>
+						<input type="button" class="btn btn-primary" value="确认" />
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var editSelfUrl = APIBASEURL+"/app/user/updateOther";
+		var editPassWordUrl = APIBASEURL+"/app/user/updatePassword";
+		var sendPhoneCodeUrl = APIBASEURL+"/app/base/getverityCode";
+		var editPhoneUrl = APIBASEURL+"/app/user/editPhone";
+		var editEmailUrl = APIBASEURL+"/app/user/updateEmail";
+		var showCollectUrl = APIBASEURL+"/app/collection/list";
+		var deleteCollectUrl = APIBASEURL+"/app/collection/deleteByUserIdAndProductId";
+		var ideaUrl = APIBASEURL+"/app/feedback/save";
+		$(function() {
+			$("[data-toggle='tooltip']").tooltip({
+				"trigger": "manual"
+			});
+			showSelfInfo();
+			$(".account-set").click(function() {
+				if($(this).data("off") == 0) {
+					$(this).data("off", 1);
+					$(".zoom-icon").attr("src", "images/up_1.png");
+				} else {
+					$(this).data("off", 0);
+					$(".zoom-icon").attr("src", "images/down_1.png");
+				}
+				$(".account-set-menu").slideToggle('slow');
+			});
+			$(".switch-menu li[data-index]").click(function() {
+				$(".switch-menu li[data-index]").removeClass("active");
+				$(this).addClass("active");
+				$(".main-right>div").addClass("hide");
+				$(".main-right>div[data-index=" + $(this).data("index") + "]").removeClass("hide");
+				if($(this).data("index") == 0) {
+					editSelfInfo();
+				} else if($(this).data("index") == 1) {
+					editPassword();
+				} else if($(this).data("index") == 2) {
+					editPhone();
+				} else if($(this).data("index") == 3) {
+					editEmail();
+				} else if($(this).data("index") == 4) {
+					showCollectList();
+				} else {
+					ideaInform();
+				}
+			});
+		});
+
+		function loadSelfData() {
+			var arrstr = document.cookie.split(";");
+			var data = {};
+			for(var i = 0; i < arrstr.length; i++) {
+				var arry = unescape(arrstr[i]).split("=");
+				var name = arry[0].replace(/\s/g, "");
+				data[name] = arry[1];
+			}
+			return data;
+		}
+
+		function showSelfInfo() { //显示基本信息
+			var content = ".self-info";
+			var control = new Controller(content);
+			var data = loadSelfData();
+			control.set(data);
+			$(".avatar img").attr("src",getCookie("userheadUrl"));
+			$(".self-name").text(getCookie("username"));
+		}
+
+		function editSelfInfo() { //修改个人基本信息
+			var content = ".self-info-edit";
+			var control = new Controller(content);
+			var data = loadSelfData();
+			control.set(data);
+			$(".self-info-edit .btn-primary").unbind("click").click(function() {
+				if(!inputValidateForGritter(content)) {
+					return false;
+				}
+				var data = control.getJSON();
+				data.userId = getCookie("userId");
+				console.log(data)
+				$.ajax({
+					type: "post",
+					url: editSelfUrl,
+					data: data,
+					//					async: true,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+					},
+					error: function(data, textStatus, errorThrown) {
+						console.log(data)
+					}
+				});
+			});
+		}
+
+		function editPassword() { //修改密码
+			var content = ".edit-password";
+			var control = new Controller(content);
+			$(".repeat-possword,.new-password").blur(function() {
+				var newPsd = $(".new-password").val();
+				var repeatNewPsd = $(".repeat-possword").val();
+				if(newPsd != repeatNewPsd) {
+					$('.new-password').tooltip('show');
+				} else {
+					$('.new-password').tooltip('hide');
+				}
+			});
+			$(".edit-password .btn-primary").unbind("click").click(function() {
+				if(!inputValidateForGritter(content)) {
+					return false;
+				}
+				var oldPsd = $(".old-password").val();
+				var newPsd = $(".new-password").val();
+				var repeatNewPsd = $(".repeat-possword").val();
+				if(newPsd) {}
+				var data = {
+					"oldPassword": oldPsd,
+					"password": newPsd
+				};
+				data.userId = getCookie("userId");
+				$.ajax({
+					type: "post",
+					url: editPassWordUrl,
+					data: data,
+					dataType: 'json',
+					success: function(data) {
+						if(data.status == 0) {
+							alert("密码修改成功，请重新登录");
+							window.location.href = "login.html";
+						} else {
+							alert(data.msg);
+						}
+					},
+					error: function(data, textStatus, errorThrown) {
+						console.log(data)
+					}
+				});
+			});
+		}
+
+		function editPhone() { //修改手机
+			var oldPhone = getCookie("phone");
+			var content = ".edit-phone";
+			$(content + " .old-phone").text(oldPhone.replace(/(\d{3})\d{4}(\d{4})/g, "$1xxxx$2"));
+			$(content + " .get-code").unbind("click").click(function() {
+				var phone = $(content + " .new-phone").val();
+				if(!phone) {
+					alert("手机号不能为空！");
+					$(content + " .new-phone").focus();
+					return false;
+				}
+				sendCode("phone");
+			});
+			$(content + " .btn-primary").unbind("click").click(function() {
+				if(!inputValidateForGritter(content)) {
+					return false;
+				}
+				var phone = $(content + " .new-phone").val();
+				var code = $(content + " .code").val();
+				$.ajaxPost(editPhoneUrl, {
+					"phone": phone,
+					"userId": getCookie("userId"),
+					"verityCode": code
+				}, function(res) {
+					if(res.status == 0) {
+						setCookie("phone", phone);
+						$(content + " .old-phone").text(getCookie("phone").replace(/(\d{3})\d{4}(\d{4})/g, "$1xxxx$2"));
+						$(content + " .new-phone").val("");
+						$(content + " .code").val("");
+						alert("修改手机号成功！");
+					}
+				});
+
+			});
+		}
+
+		function editEmail() { //修改邮箱
+			var oldEmail = getCookie("email");
+			var content = ".edit-email";
+			$(content + " .old-email").text(oldEmail.replace(/(\S{3})\S{4}(\S{4})/g, "$1xxxx$2"));
+			$(content + " .btn-primary").unbind("click").click(function() {
+				if(!inputValidateForGritter(content)) {
+					return false;
+				}
+				var email = $(content + " .new-email").val();
+				$.ajaxPost(editEmailUrl, {
+					"email": email,
+					"userId": getCookie("userId")
+				}, function(res) {
+					if(res.status == 0) {
+						setCookie("email", email);
+						$(content + " .old-email").text(getCookie("email").replace(/(\S{3})\S{4}(\S{4})/g, "$1xxxx$2"));
+						$(content + " .new-email").val("");
+						alert("修改邮箱成功！");
+					} else {
+						alert(res.msg);
+					}
+				});
+
+			});
+		}
+
+		function showCollectList() { //收藏列表
+			$(".collect-list ul").empty();
+			$.ajaxPost(showCollectUrl, {
+				"userId": getCookie("userId")
+			}, function(res) {
+				console.log(res);
+				for(var i = 0; i < res.data.length; i++) {
+					var data = res.data[i];
+					var str = "<li id=" + data.productId + ">" +
+						"<img class=\"img-thumbnail show-img\" src=\""+data.proPhoto+"\" />" +
+						"<h5>" + data.productName + "</h5>" +
+						"<span class=\"price col-red\">￥<b>" + data.productPrice + "</b></span>" +
+						"<a href=\"javascript:;\" class=\"delete\"><img src=\"images/delete.png\" /></a>" +
+						"</li>";
+					$(".collect-list ul").append(str);
+				}
+				$(".collect-list ul .delete").unbind("click").click(function() {
+					var id = $(this).parent().attr("id");
+					deleteCollect(id);
+				});
+
+			});
+		}
+
+		function ideaInform() { //意见反馈
+			$(".idea-inform .btn-primary").unbind("click").click(function() {
+				var ideaTxt = $(".idea-text").val();
+				$.ajaxPost(ideaUrl, {
+					"content": ideaTxt,
+					"username": getCookie("username"),
+					"phone": getCookie("phone"),
+					"email":getCookie("email")
+				},function(res){
+					if(res.status==0){
+						$(".idea-text").val("");
+						alert("意见反馈成功！");
+					}else{
+						alert(res.msg);
+					}
+				});
+			});
+		}
+
+		function deleteCollect(id) {
+			if(id) {
+				$.ajaxPost(deleteCollectUrl, {
+					"productId": id
+				}, function(res) {
+					if(res.status == 0) {
+						$("#" + id).remove();
+					} else {
+						alert(res.msg);
+					}
+				});
+			}
+		}
+
+		function codeWaiting(control) {
+			$(control).attr("iswaiting", true);
+			var second = 60;
+			var interval = setInterval(countDown, 1000);
+
+			function countDown() {
+				if(second == 0) {
+					$(control + " span").text("重新获取");
+					$(control).attr("iswaiting", false);
+					clearInterval(interval);
+				} else {
+					$(control + " span").text(second + "s");
+					second--;
+				}
+			}
+		}
+
+		function sendCode(type) { //发送验证码
+			if(type) {
+				if(type == "phone") {
+					$.ajax({
+						type: "post",
+						url: sendPhoneCodeUrl,
+						data: {
+							"phone": $(".edit-phone .new-phone").val()
+						},
+						success: function(data) {
+							if(data.status == 0) {
+								var isWait = $(".edit-phone .get-code").attr("iswaiting");
+								if(isWait == "true") {
+									return false;
+								}
+								codeWaiting(".edit-phone .get-code");
+							} else {
+								alert(data.msg);
+							}
+						}
+					});
+				} else {
+					//$.ajaxPost()
+				}
+			}
+		}
+	</script>
+
+</html>

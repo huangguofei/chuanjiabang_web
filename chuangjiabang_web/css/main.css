@@ -1,0 +1,86 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+
+.col-red {
+	color: red;
+}
+
+.col-black {
+	color: black;
+}
+
+ul li {
+	list-style: none;
+}
+
+.content {
+	max-width: 1000px;
+	min-width: 600px;
+	height: auto;
+	margin: 0 auto;
+	background: #fff;
+	padding: 0 20px;
+}
+
+.top {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	padding: 0 10px;
+	background: #F7F7F7;
+}
+
+.top p {
+	margin-bottom: 0;
+}
+
+.top i {
+	font-style: inherit;
+}
+
+.logo img {
+	cursor: pointer;
+}
+
+.message {
+	margin-right: 5px;
+}
+
+.logo {
+	margin: 20px 0 10px 0;
+}
+
+.logo-img {
+	width: 50px;
+	height: auto;
+}
+
+.modal-title {
+	color: #fff;
+}
+
+.modal-header {
+	background: #418BCA;
+	padding: 10px;
+}
+
+.modal-header .close {
+	font-size: 14px;
+	margin-top: 2px;
+	font-weight: inherit;
+	opacity: 1;
+	color: #fff;
+}
+
+.tooltip-inner {
+	background: red;
+}
+
+.tooltip.right .tooltip-arrow {
+	border-right-color: red;
+}

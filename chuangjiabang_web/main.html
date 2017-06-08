@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style type="text/css">
+			.content {
+				max-width: 1000px;
+				min-width: 600px;
+				height: auto;
+				margin: 0 auto;
+				background: #fff;
+				padding: 0 20px;
+			}
+			
+			.top {
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				margin: 0 auto;
+				padding: 0 10px;
+				background: #F7F7F7;
+			}
+			
+			.top p {
+				margin-bottom: 0;
+			}
+			
+			.top i {
+				font-style: inherit;
+			}
+			
+			.message {
+				margin-right: 5px;
+			}
+			
+			.title {
+				margin-top: 10px;
+				margin-bottom: 5px;
+			}
+			
+			.change-lang {
+				color: #666666;
+				margin-top: 25px;
+			}
+			
+			.banner {
+				width: 100%;
+				height: 350px;
+			}
+			
+			.banner img {
+				width: 100%;
+				min-height: 100px;
+				max-height: 350px;
+				max-width: 350px;
+			}
+			
+			.banner-index {
+				right: -180px;
+				left: inherit;
+			}
+			
+			.carousel-indicators li {
+				background: #D2DEF1;
+				width: 30px;
+				height: 6px;
+				border-radius: 3px;
+			}
+			
+			.carousel-indicators .active {
+				background: #1356B7;
+				width: 30px;
+				height: 6px;
+				border-radius: 3px;
+				margin: 1px;
+			}
+			
+			.logo-img {
+				width: 50px;
+				height: auto;
+			}
+			
+			.menu ul {
+				zoom: 1;
+				padding: 0;
+			}
+			
+			.menu ul:after {
+				content: "";
+				width: 0;
+				height: 0;
+				clear: both;
+				display: block;
+				visibility: hidden;
+			}
+			
+			.menu li {
+				float: left;
+				width: 180px;
+				height: 180px;
+				list-style: none;
+				text-align: center;
+			}
+			
+			.menu li:hover a {
+				text-decoration: none;
+			}
+			
+			.menu li img {
+				width: 120px;
+				height: auto;
+			}
+			
+			.menu li span {
+				display: block;
+				width: 100%;
+				line-height: 30px;
+				font-size: 20px;
+				color: #000;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="title">
+				<div class="logo pull-left">
+					<a href="main.html">
+						<img src="images/logo_login.png" class="logo-img" />
+						<img src="images/company-name.png" class="logo-name">
+					</a>
+				</div>
+
+				<span class="change-lang pull-right">
+					<a href="javascript:;">中文</a>|
+					<a href="javascript:;">English</a>
+				</span>
+				<div class="clearfix"></div>
+			</div>
+			<div class="banner carousel slide" id="banner">
+				<!-- 轮播（Carousel）指标 -->
+				<ol class="carousel-indicators banner-index">
+					<li data-target="#banner" data-slide-to="0" class="active"></li>
+					<li data-target="#banner" data-slide-to="1"></li>
+					<li data-target="#banner" data-slide-to="2"></li>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="images/banner.png" alt="First slide">
+					</div>
+					<div class="item">
+						<img src="images/banner.png" alt="Second slide">
+					</div>
+					<div class="item">
+						<img src="images/banner.png" alt="Third slide">
+					</div>
+				</div>
+				<!-- 轮播（Carousel）导航 -->
+				<a class="carousel-control left hide" href="#banner" data-slide="prev">&lsaquo;
+				</a>
+				<a class="carousel-control right hide" href="#banner" data-slide="next">&rsaquo;
+				</a>
+			</div>
+			<div class="menu">
+				<ul>
+					<!--<li data-index="0">
+						<a href="javascript:;"><img src="images/tongdao1.png"><span>自控服务</span></a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var jurisdictionArry = [{
+				name: "自控服务",
+				src: "images/icon1.png"
+			}, {
+				name: "通导服务",
+				src: "images/icon2.png"
+			},
+			{
+				name: "液压服务",
+				src: "images/icon3.png"
+			}, {
+				name: "备件商城",
+				src: "images/icon4.png"
+			},
+			{
+				name: "下单",
+				src: "images/icon5.png"
+			}, {
+				name: "客服接待",
+				src: "images/icon6.png"
+			},
+			{
+				name: "内部汇总",
+				src: "images/icon7.png"
+			}, {
+				name: "项目跟进",
+				src: "images/icon8.png"
+			},
+			{
+				name: "实时定位",
+				src: "images/icon9.png"
+			}, {
+				name: "进度查询",
+				src: "images/icon10.png"
+			},
+			{
+				name: "任务管理",
+				src: "images/icon11.png"
+			}, {
+				name: "申购单",
+				src: "images/icon12.png"
+			},
+			{
+				name: "专家",
+				src: "images/icon13.png"
+			}, {
+				name: "发起询价单",
+				src: "images/icon7.png"
+			},
+			{
+				name: "申购单任务",
+				src: "images/icon15.png"
+			}, {
+				name: "询价单任务",
+				src: "images/icon12.png"
+			}, {
+				name: "项目管理",
+				src: "images/icon17.png"
+			}, {
+				name: "我的审核",
+				src: "images/icon18.png"
+			}
+		];
+		var roleArry = [
+			[1, 2, 3, 4, 5, 6, 17],
+			[1, 2, 3],
+			[1, 2, 3],
+			[4, 5, 7, 8, 9, 10, 11],
+			[4, 8, 9, 10, 11, 12, 13],
+			[4, 10, 14, 15, 16],
+			[9, 10, 11],
+			[18],
+			[18],
+			[18],
+			[18],
+			[18]
+		];
+		var role=getCookie("urole");
+		$(function() {
+			showJurisdiction();
+			$('.carousel').carousel();
+			$(".menu li").click(function() {
+				var index=$(this).data("index");
+				//				var otherArry
+				if( index== 1||index==2||index==3) { //自控,通导,液压服务
+					window.location.href = "server-list.html?index="+index;
+				}  else if($(this).data("index") == 4) { //备件商城
+					window.location.href = "sparepart-store.html";
+				} else if(index == 5) { //下单
+					window.location.href = "placing-an-order.html";
+				} else if(index == 17) {
+					window.location.href = "project-management.html";
+				}
+			});
+		});
+
+		function showJurisdiction() {
+			var roles = roleArry[role - 1];
+			console.log(roles)
+			for(var i = 0; i < roles.length; i++) {
+				console.log(roles[i] - 1)
+				var showData = jurisdictionArry[roles[i] - 1];
+				$(".menu ul").append("<li data-index=" + (roles[i]) + "><a href=\"javascript:;\"><img src=" + showData.src +
+					"><span>" + showData.name + "</span></a></li>");
+			}
+		}
+
+		function permissionAllocation() { //权限分配
+
+		}
+
+		function permissionBuild(index) { //单个权限合成
+
+		}
+	</script>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-商品详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.main {
+				position: relative;
+				border-bottom: 1px solid #F5F5F5;
+			}
+			
+			.show-img {
+				width: 350px;
+				height: 350px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.show-img .big-img {
+				width: 350px;
+				height: 350px;
+				margin-bottom: 20px;
+			}
+			
+			.img-last,
+			.img-next {
+				width: 40px;
+				margin-top: 5px;
+			}
+			
+			.small-img-list {
+				zoom: 1;
+				padding: 0;
+			}
+			
+			.small-img-list:after {
+				content: "";
+				height: 0;
+				display: block;
+				visibility: hidden;
+				clear: both;
+			}
+			
+			.small-img-list li {
+				float: left;
+				margin: 3px;
+				cursor: pointer;
+			}
+			
+			.small-img-list li.active {
+				border: 1px solid #1B79DD;
+			}
+			
+			.small-img-list img {
+				width: 60px;
+				height: 60px;
+			}
+			
+			.show-info {
+				font-size: 18px;
+				margin-left: 400px;
+				padding-top: 10px;
+			}
+			
+			.show-info b {
+				font-size: 20px;
+			}
+			
+			.btn-groups {
+				margin-top: 80px;
+			}
+			
+			.btn-groups input {
+				width: 180px;
+				height: 40px;
+			}
+			
+			.commodity-info h4 {
+				margin-top: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="main">
+				<div class="show-img">
+					<img src="images/add_1@3x.png" class="big-img img-thumbnail" />
+					<div class="img-change">
+						<a href="javascript:;" class="img-last pull-left"><img src="images/last.png"></a>
+						<ul class="small-img-list pull-left">
+							<li class="active"><img src="images/banner.png"></li>
+							<li><img src="images/c4分类商品筛选_spec.png"></li>
+							<li><img src="images/banner.png"></li>
+							<li><img src="images/banner.png"></li>
+						</ul>
+						<a href="javascript:;" class="img-next pull-left"><img src="images/next.png"></a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="show-info">
+					<h2 bind="productName">恋人并肩傻傻的夕阳</h2>
+					<p>价格：<span class="col-red">￥<b bind="productPrice">220</b></span></p>
+					<p>品牌：<span bind="brand"></span></p>
+					<p>型号：<span bind="modelNum"></span></p>
+					<p>产地：<span bind="makePlace"></span></p>
+					<p>新旧程度：<span bind="oldNew"></span></p>
+					<p>库存数量：<span bind="inventory"></span></p>
+					<p>供货周期：<span bind="leadTime"></span></p>
+					<p class="btn-groups">
+						<input type="button" class="btn btn-default btn-collect" id="" value="收藏" />
+						<input type="button" class="btn btn-primary" id="" value="联系客服" />
+					</p>
+				</div>
+				<!--<div class="clearfix"></div>-->
+			</div>
+			<div class="commodity-info">
+				<h4>商品介绍图</h4>
+				<img src="images/banner.png" />
+				<img src="images/banner.png" />
+				<img src="images/banner.png" />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var commodityInfoUrl = APIBASEURL + "/app/product/findOne";
+		var collectUrl=APIBASEURL+"/app/collection/save";
+		var commodityData="";
+		$(function() {
+			$(".img-last").click(function() {
+				if($(".small-img-list li.active").index() == 0) {
+					$(".small-img-list li").removeClass("active");
+					$(".small-img-list li").last().addClass("active");
+				} else {
+					$(".small-img-list li.active").removeClass("active").prev().addClass("active");
+				}
+				$(".big-img").attr("src", $(".small-img-list li.active img").attr("src"));
+			});
+			$(".img-next").click(function() {
+				var len = $(".small-img-list li").length;
+				if($(".small-img-list li.active").index() == (len - 1)) {
+					$(".small-img-list li").removeClass("active");
+					$(".small-img-list li:first-child").addClass("active");
+				} else {
+					$(".small-img-list li.active").removeClass("active").next().addClass("active");
+				}
+				$(".big-img").attr("src", $(".small-img-list li.active img").attr("src"));
+			});
+			$(".btn-collect").click(function(){
+				$.ajaxPost(collectUrl,commodityData,function(res){
+					if(res.status==0){
+						alert("收藏成功！");
+					}else{
+						alert(res.msg);
+					}
+				});
+			});
+		});
+
+		function loadData() {
+			var control = ".show-info";
+			var content = new Controller(control);
+			$.ajaxPost(commodityInfoUrl, {
+				"productId": $.getQueryObject().id
+			}, function(res) {
+				if(res.status == 0) {
+					commodityData=res.data;
+					content.set(res.data);
+					$(".big-img").attr("src", res.data.proIntro[0]);
+					for(var i = 0; i < res.data.proIntro.length; i++) {
+						var data = res.data.proIntro[i];
+						$(".small-img-list").append("<li><img class='" + (i == 0 ? "active" : "") + "' src=\"" + data + "\"></li>");
+					}
+					for(var i = 0; i < data.proPhoto.length; i++) {
+						var data = data.proPhoto[i];
+						$(".commodity-info").append("<img src='" + data + "'>");
+					}
+				} else {
+					alert(res.msg);
+				}
+			});
+		}
+	</script>
+
+</html>

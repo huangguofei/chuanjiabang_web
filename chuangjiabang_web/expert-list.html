@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-项目管理</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.search {
+				font-size: 16px;
+				margin: 0;
+				margin-bottom: 20px;
+			}
+			
+			.search .search-class {
+				cursor: pointer;
+				margin-left: 10px;
+			}
+			
+			.search span.active {
+				color: #107AE3;
+			}
+			
+			.search img {
+				width: 18px;
+			}
+			
+			.search-txt {
+				width: 300px;
+			}
+			
+			.show-table th {
+				background: #F1F1F1;
+			}
+			
+			.page {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="search">
+				<p class="pull-left">类别：<span class="search-class">全部</span>
+					<span class="search-class">电焊</span>
+					<span class="search-class">印刷</span>
+					<span class="search-class">维修</span>
+					<span class="search-class">保安</span>
+					<span class="search-class">紫微</span>
+					<span class="search-class">验收</span>
+				</p>
+				<div class="input-group pull-right search-txt">
+					<input type="text" placeholder="输出查询条件" class="form-control search-txt" id="" value="" />
+					<span class="input-group-btn">
+							<button type="button" class="btn btn-primary btn-search"><img src="images/search_white.png"></button>
+						</span>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="show-table">
+				<table class="table table-hover table-responsive">
+					<tr>
+						<th>专家头像</th>
+						<th>专家名字</th>
+						<th>擅长领域</th>
+					</tr>
+					<tr>
+						<td>20170306119</td>
+						<td>这是一个秒速语句</td>
+						<td>甲提交</td>
+					</tr>
+					<tr>
+						<td>20170306119</td>
+						<td>这是一个秒速语句</td>
+						<td>甲提交</td>
+					</tr>
+					<tr>
+						<td>20170306119</td>
+						<td>这是一个秒速语句</td>
+						<td>甲提交</td>
+					</tr>
+				</table>
+				<div class="page">
+					<ul class="pagination">
+						<li>
+							<a href="#">上一页</a>
+						</li>
+						<li class="active">
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">4</a>
+						</li>
+						<li>
+							<a href="#">5</a>
+						</li>
+						<li>
+							<a href="#">下一页</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		$(function() {
+			$(".search-class").click(function() {
+				$(this).toggleClass("active");
+			});
+			
+		})
+	</script>
+
+</html>

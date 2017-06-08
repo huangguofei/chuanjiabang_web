@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-备件商城列表</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.search {
+				margin-top: 20px;
+				line-height: 34px;
+				position: relative;
+			}
+			
+			.search-class {
+				font-size: 16px;
+				margin: 0;
+			}
+			
+			.search-class span {
+				cursor: pointer;
+				margin-left: 10px;
+			}
+			
+			.search-class>.store-class.active {
+				color: #3F51B5;
+			}
+			
+			.search .input-group {
+				width: 300px;
+				position: absolute;
+				top: 0px;
+				right: 10px;
+			}
+			
+			.btn-search img {
+				width: 18px;
+				height: 18px;
+			}
+			
+			.custom-search {
+				display: inline-block;
+				/*width: ;*/
+			}
+			
+			.search .custom-search input[type=text] {
+				display: inline-block;
+				width: 100px;
+			}
+			
+			.custom-search input[type=button] {
+				vertical-align: inherit;
+			}
+			
+			.store-list ul {
+				min-height: 300px;
+				padding: 0 10px;
+				zoom: 0;
+			}
+			
+			.store-list ul:after {
+				content: "";
+				height: 0;
+				display: block;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.store-list li {
+				float: left;
+				width: 180px;
+				height: 250px;
+				text-align: left;
+				cursor: pointer;
+				margin-bottom: 5px;
+				margin-left: 10px;
+			}
+			
+			.store-list li img {
+				width: 180px;
+				height: 180px;
+			}
+			
+			.store-list li h4 {
+				margin: 5px 0;
+			}
+			
+			.store-list a {
+				text-decoration: none;
+				outline: none
+			}
+			
+			.price b {
+				font-size: 20px;
+			}
+			
+			.page {
+				text-align: center;
+			}
+			
+			.page ul {
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name">
+				</a>
+			</div>
+			<div class="main">
+				<div class="search">
+					<div class="search-list">
+						<h4>主机监控：</h4>
+						<p class="search-class brand">品牌：
+
+						</p>
+						<p class="search-class model-name">型号：
+						</p>
+						<p class="search-class ">用途：
+							<span class="store-class">自控</span>
+						</p>
+						<p class="search-class old-new">新旧程度：
+						</p>
+						<p class="search-class price">价格：
+							<span class="store-class" data-small="0" data-big="5">0~5</span>
+							<span class="store-class" data-small="5" data-big="10">5~10</span>
+							<span class="store-class" data-small="10" data-big="15">10~15</span>
+							<span class="store-class" data-small="15" data-big="">15以上</span>
+							<span class="custom-search">自定义价格：
+								<input type="text" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')" class="form-control big" placeholder="最低价格">—
+								<input type="text" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')" class="form-control small" placeholder="最高价格">
+								<input type="button" class="btn btn-primary" value="确定" />
+							</span>
+						</p>
+						<p class="search-class ">排序方式：
+							<span class="store-class">自控</span>
+						</p>
+					</div>
+					<div class="input-group">
+						<input type="text" placeholder="输出查询条件" class="form-control search-txt" id="" value="" />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-primary btn-search"><img src="images/search_white.png"></button>
+						</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="store-list">
+					<ul>
+						<li>
+							<a href="commodity-detail.html">
+								<img src="images/banner.png">
+								<h4>发电机发电机发电机</h4>
+								<span class="price col-red">￥<b>220</b></span></a>
+						</li>
+
+					</ul>
+				</div>
+				<div class="page">
+					<ul class="pagination">
+						<li>
+							<a href="#">上一页</a>
+						</li>
+						<li class="active">
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">4</a>
+						</li>
+						<li>
+							<a href="#">5</a>
+						</li>
+						<li>
+							<a href="#">下一页</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var getSearchUrl = APIBASEURL + "/app/product/filtrate";
+		var searchUrl = APIBASEURL + "/app/product/findByCondition";
+		$(function() {
+			loadSearch();
+			$(".store-list li").click(function() {
+
+			});
+			$("input.small,input.big").focus(function() {
+				$(".price .store-class").removeClass("active");
+			});
+			$(".price .btn-primary,.btn-search").unbind("click").click(function() {
+				searchData();
+			});
+		});
+
+		function loadSearch() {
+			$.ajaxPost(getSearchUrl, {}, function(res) {
+				if(res.status == 0) {
+					console.log(res);
+					for(var i = 0; i < res.data.brands.length; i++) {
+						var data = res.data.brands[i];
+						$(".brand").append(`<span class=\"store-class\">${data.brand}</span>`);
+					}
+					for(var i = 0; i < res.data.modelNums.length; i++) {
+						var data = res.data.modelNums[i];
+						$(".model-name").append(`<span class=\"store-class\">${data.modelNum}</span>`);
+					}
+					for(var i = 0; i < res.data.oldNews.length; i++) {
+						var data = res.data.oldNews[i];
+						$(".old-new").append(`<span class=\"store-class\">${data.oldNew}</span>`);
+					}
+					$(".search-class .store-class:first-child").addClass("active");
+				} else {
+					alert(res.msg)
+				}
+				$(".search-class .store-class").click(function() {
+					$(this).addClass("active").siblings().removeClass("active");
+					if($(this).parent().hasClass("price")) {
+						$("input.small,input.big").val("");
+					}
+					searchData();
+				});
+			});
+		}
+
+		function searchData() { //请求数据
+			$(".store-list ul").empty();
+			$.ajaxPost(searchUrl, collectSelectCondition(), function(res) {
+				if(res.status == 0) {
+					console.log(res);
+					for(var i = 0; i < res.data.length; i++) {
+						var data = res.data[i];
+						var str = "<li>" +
+							"<a href=\"commodity-detail.html?id=" + data.productId + "\">" +
+							"<img src=\"" + data.prophoto + "\">" +
+							"<h4>" + data.productName + "</h4>" +
+							"<span class=\"price col-red\">￥<b>" + data.productPrice + "</b></span></a>" +
+							"</li>";
+						$(".store-list ul").append(str);
+					}
+				} else {
+					alert(res.msg);
+				}
+			});
+		}
+
+		function collectSelectCondition() { //收集搜索信息
+			var data = {};
+			data.brand = $(".brand .active").text();
+			data.modelNum = $(".model-name .active").text();
+			data.oldNew = $(".old-new .active").text();
+			data.oldNew = $(".old-new .active").text();
+			if($(".price .active").length == 0) {
+				data.startProductPrice = $(".big").val();
+				data.endProductPrice = $(".small").val();
+			} else {
+				data.startProductPrice = $(".price .active").data("small");
+				data.endProductPrice = $(".price .active").data("big");
+			}
+			data.productName = $(".search-txt").val();
+			return data;
+		}
+	</script>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-登录</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.content {
+				width: 300px;
+				height: 500px;
+				margin: 0 auto;
+				padding-top: 5%;
+			}
+			
+			.logo {
+				width: 200px;
+				height: auto;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			.form-group {
+				width: 100%;
+				border-bottom: 1px solid #CACACA;
+				padding-bottom: 5px;
+			}
+			
+			.txt {
+				border: 0;
+				outline: none;
+				line-height: 30px;
+				width: calc(100% - 70px);
+				font-size: 16px;
+			}
+			
+			.menu-icon {
+				width: 25px;
+				height: auto;
+			}
+			
+			.show-password {
+				cursor: pointer;
+				width: 25px;
+			}
+			
+			.btn-login {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<img src="images/logo_login@3x.png" class="logo" />
+			<form role="form" class="form-inline">
+				<div class="form-group">
+					<img src="images/mine_normal.png" class="menu-icon" />
+					<input type="text" name="" placeholder="请输入用户名/手机号/邮箱" class="txt name" />
+				</div>
+				<div class="form-group">
+					<img src="images/password.png" class="menu-icon" />
+					<input type="password" name="" placeholder="请输入密码" class="txt possword" />
+					<img src="images/hidden.png" class="show-password" />
+				</div>
+				<input type="button" value="登录" class="btn btn-primary btn-block btn-login" />
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".show-password").click(function() {
+				if($("input[type=password]").length == 1) {
+					$("input[type=password]").attr("type", "text");
+				} else {
+					$("input[type=text]").last().attr("type", "password");
+				}
+			});
+			$(".btn-login").click(function() {
+				login();
+			});
+			$(".name").keypress(function(e) {
+				if(e.keyCode == 13)
+					$(".possword").focus();
+			});
+			$(".possword").keypress(function(e) {
+				console.log(e.code)
+				if(e.keyCode == 13)
+					login();
+			});
+		});
+
+		function login() {
+			var name = $(".name").val();
+			var possword = $(".possword").val();
+			if(!name) {
+				alert("用户名/手机号/邮箱不能为空!");
+				$.showSuccessGritter("用户名/手机号/邮箱不能为空!");
+				$(".name").focus();
+				return false;
+			}
+			if(!possword) {
+				alert("密码不能为空!");
+				$.showSuccessGritter("密码不能为空!");
+				$(".possword").focus();
+				return false;
+			}
+			$.ajax({
+				type: "post",
+				url: APIBASEURL+"/app/user/login",
+				async: true,
+				dataType: 'json',
+				data: {
+					"phone": name,
+					"password": possword
+				},
+				success: function(data) {
+					console.log(data);
+					if(data.status == 0) {
+						savaLoginInfo(data);
+						window.location.href = "main.html";
+					} else {
+						alert(data.msg);
+					}
+				},
+				error: function(data) {
+					console.log(data);
+				}
+			});
+			//window.location.href = "main.html";
+		}
+
+		function savaLoginInfo(data) {
+			for(var i in data.data.user) {
+				console.log(i + ":" + data.data.user[i]);
+				setCookie(i, data.data.user[i]);
+			}
+		}
+	</script>
+
+</html>

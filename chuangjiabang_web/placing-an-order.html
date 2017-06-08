@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-下单</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.main {
+				padding-left: 100px;
+			}
+			
+			.main input[type=text] {
+				border: 0;
+				outline: none;
+			}
+			
+			.main textarea.detail-describe {
+				height: 150px;
+				resize: none;
+			}
+			
+			.img-add a {
+				display: inline-block;
+			}
+			
+			.img-add img {
+				width: 75px;
+				height: 75px;
+			}
+			
+			.name {
+				width: 100px;
+				margin-right: 20px;
+			}
+			
+			.file-add img {
+				margin-right: 10px;
+			}
+			
+			.btn-post {
+				display: block;
+				margin-left: 200px;
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name">
+				</a>
+			</div>
+			<div class="main">
+				<div class="form-group">
+					<p>您的船名是？</p>
+					<input type="text" class="" bind="shipname" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<p>您的公司名是？</p>
+					<input type="text" class="" bind="company" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<p>您的姓名、联系方式是？</p>
+					<input type="text" class="name" bind="username" placeholder="名字" />
+					<input type="text" class="" bind="phone" maxlength="11" placeholder="联系方式" />
+				</div>
+				<div class="form-group">
+					<p>服务地点是？</p>
+					<input type="text" class="" bind="serverArea" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<p>服务时间？</p>
+					<input type="text" class="" bind="serverTime" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<p>服务内容？</p>
+					<input type="text" class="" bind="serverCont" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<p>详细描述？</p>
+					<textarea class="form-control detail-describe" bind="itemDesc" placeholder="请详细秒速您的问题或者希望得到专家的帮助事项，便于给您详细的咨询解决方案。（如故障现象，故障设备资料，之前的修理的报告等等）"></textarea>
+				</div>
+				<div class="form-group img-add">
+					<a href="javascript:;"><img src="images/photo_add.png"></a>
+					<input type="file" class="" onchange="uploadImg()" id="uploadimg" name="uploadimg" />
+				</div>
+				<div class="form-group file-add hide">
+					<a href="javascript:;" onclick="starUpload();"><img src="images/file-pack.png">添加附件</a>
+					<input type="file" class="hide" id="upload-file" />
+				</div>
+				<input type="button" value="提交" class="btn btn-primary btn-post" />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		$(function() {
+			$(".img-add a").click(function() {
+				$("#upload-file").trigger("change");
+			});
+			$("#upload-file").change(function(){
+				uploadImg();
+			});
+		});
+		var placingAnOrder = APIBASEURL + "app/item/saveItem";
+
+		function uploadImg() {
+			console.log(UPLOADFILE)
+			$.ajaxFileUpload({
+				type:"post",
+				url: UPLOADFILE,
+				secureuri: false, //是否需要安全协议，一般设置为false
+				fileElementId: 'uploadimg', //文件上传域的ID
+				dataType: 'json', //返回值类型 一般设置为json
+				success: function(data, status) //服务器成功响应处理函数
+				{
+					console.log(data);
+				},
+				error: function(data, status, e) //服务器响应失败处理函数
+				{
+					console.log(arguments);
+				}
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-在线聊天</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			html,
+			body,
+			.content {
+				height: 100%;
+			}
+			
+			.content {
+				background: #E1E1E1;
+				padding-top: 30px;
+			}
+			
+			.chat {
+				position: relative;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+				height: 95%;
+			}
+			
+			.chat-list {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: 200px;
+			}
+			
+			.chat-object-info {
+				background: #107AE3;
+				text-align: center;
+				height: 120px;
+			}
+			
+			.chat-object-avatar {
+				width: 60px;
+				height: 60px;
+				margin-top: 15px;
+			}
+			
+			.chat-object-name {
+				color: #fff;
+				font-size: 16px;
+				margin: 5px 0;
+			}
+			
+			.chat-list {
+				background: #363C45;
+				color: #fff;
+				font-size: 16px;
+			}
+			
+			.chat-list ul {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.chat-list li {
+				height: 60px;
+				line-height: 60px;
+			}
+			
+			.chat-list li img {
+				width: 50px;
+				height: 50px;
+				margin: 5px;
+			}
+			
+			.chat-page {
+				margin-left: 200px;
+				background: #F7F7F7;
+				height: 100%;
+			}
+			
+			.chat-page-top {
+				padding: 10px 5px;
+				text-align: right;
+				border-bottom: 1px solid #E1E1E1;
+			}
+			
+			.chat-page-top img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.chat-page-main {
+				height: calc(100% - 231px);
+			}
+			
+			.chat-time {
+				text-align: center;
+				font-size: 12px;
+				color: #B6B6B6;
+				margin-top: 10px;
+			}
+			
+			.chat-avatar {
+				width: 40px;
+				height: 40px;
+			}
+			
+			.message {
+				padding: 5px;
+				line-height: 30px;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+			}
+			
+			.send-message .message {
+				color: #fff;
+				background: #107AE3;
+				margin-right: 10px;
+				max-width: calc(100% - 80px);
+			}
+			
+			.receive-message .message {
+				color: #000;
+				background: #fff;
+				margin-left: 10px;
+				max-width: calc(100% - 80px);
+			}
+			
+			.message-single {
+				position: relative;
+				margin: 10px 0;
+				overflow: auto;
+			}
+			
+			.message-single .icon {
+				position: absolute;
+				display: inline-block;
+				width: 0;
+			}
+			
+			.receive-message .icon {
+				top: 10px;
+				left: 40px;
+				border-top: 10px solid #F7F7F7;
+				border-bottom: 10px solid #F7F7F7;
+				border-right: 10px solid #fff;
+			}
+			
+			.send-message .icon {
+				top: 8px;
+				right: 40px;
+				border-top: 10px solid #F7F7F7;
+				border-bottom: 10px solid #F7F7F7;
+				border-left: 10px solid #107AE3;
+			}
+			
+			.chat-page-bottom {
+				border-top: 1px solid #E1E1E1;
+				height: 170px;
+			}
+			
+			.chat-page-bottom p {
+				padding: 5px;
+				margin: 0;
+			}
+			
+			.chat-page-bottom .send-image {
+				width: 25px;
+				height: 25px;
+				cursor: pointer;
+			}
+			
+			.editor-area {
+				height:80px ;
+				margin: 0 10px;
+				margin-bottom: 10px;
+				padding: 5px;
+				border: 0;
+				outline: none;
+				font-size: 16px;
+				overflow: auto;
+			}
+			
+			.chat-page-bottom .send-btn {
+				display: block;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="chat">
+				<div class="chat-list">
+					<div class="chat-object-info">
+						<img src="images/kefu.png" class="chat-object-avatar img-circle" />
+						<p class="chat-object-name">张杰</p>
+					</div>
+					<ul>
+						<li><img src="images/kefu.png" /><span class="chat-list-name">郑爽</span></li>
+						<li><img src="images/kefu.png" /><span class="chat-list-name">郑爽</span></li>
+					</ul>
+				</div>
+				<div class="chat-page">
+					<div class="chat-page-top">
+						<a href="javascript:;"><img src="images/cancel.png" /></a>
+					</div>
+					<div class="chat-page-main">
+						<p class="chat-time">2017年6月3日9:37:37</p>
+						<div class="send-message message-single">
+							<img class="chat-avatar pull-right" src="images/kefu.png" />
+							<div class="message pull-right">
+								这是我说的话
+							</div>
+							<span class="icon"></span>
+						</div>
+						<div class="receive-message message-single">
+							<img class="chat-avatar pull-left" src="images/kefu.png" />
+							<div class="message pull-left">
+								这是别人说的话
+							</div>
+							<div class="clearfix"></div>
+							<span class="icon"></span>
+						</div>
+					</div>
+					<div class="chat-page-bottom">
+						<p class=""><img src="images/send-img.png" class="send-image" /></p>
+						<div class="editor-area" contenteditable="true"></div>
+						<input class="btn btn-primary send-btn pull-right" type="button" value="发送" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="http(s)://cdn.ronghub.com/RongIMLib-2.2.5.min.js"></script>
+	<script>
+	</script>
+
+</html>

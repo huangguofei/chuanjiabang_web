@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-备件商城分类</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.search {
+				margin: 20px 0;
+				line-height: 34px;
+			}
+			
+			.search-class {
+				font-size: 16px;
+				width: 70%;
+			}
+			
+			.search-class span {
+				cursor: pointer;
+			}
+			
+			.search-class span.active {
+				color: #3F51B5;
+			}
+			
+			.search .input-group {
+				width: 29%;
+			}
+			
+			.btn-search img {
+				width: 18px;
+				height: 18px;
+			}
+			
+			.store-list ul {
+				padding: 0px 10px;
+				zoom: 0;
+			}
+			
+			.store-list ul:after {
+				content: "";
+				height: 0;
+				display: block;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.store-list li {
+				float: left;
+				width: 180px;
+				height: 210px;
+				cursor: pointer;
+				text-align: center;
+				margin-left: 10px;
+				margin-bottom: 20px;
+			}
+			
+			.store-list li img {
+				width: 180px;
+				height: 180px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="main">
+				<div class="search">
+					<p class="search-class pull-left">类别：
+						<span class="store-class" data-index=1>自控备件</span>
+						<span class="store-class" data-index=2>通导备件</span>
+						<span class="store-class" data-index=3>液压备件</span>
+						<span class="store-class" data-index=4>物料供应</span>
+						<span class="store-class" data-index=5>共享设备</span>
+						<span class="store-class" data-index=6>共享备件</span>
+						<span class="store-class" data-index=7>共享船舶</span>
+						<span class="store-class" data-index=8>共享坞期</span>
+						<span class="store-class" data-index=9>其他</span>
+					</p>
+					<div class="input-group pull-right">
+						<input type="text" placeholder="输出查询条件" class="form-control search-txt" id="" value="" />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-primary btn-search"><img src="images/search_white.png"></button>
+						</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="store-list">
+					<ul>
+						<li><img src="images/logo_login@2x.png">
+							<h4>发电机</h4></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var sparepartUrl = APIBASEURL + "/app/smallType/findByLike";
+		$(function() {
+			$(".search-class span").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				var index = $(this).data("index");
+				showSparepart(index);
+			});
+			$(".search-class span:first-child").trigger('click');
+		});
+
+		function showSparepart(index) {
+			$(".store-list ul").empty();
+			$.ajaxPost(sparepartUrl, {
+				"bigTypeId": index
+			}, function(res) {
+				if(res.status == 0) {
+					for(var i = 0; i < res.data.length; i++) {
+						var data = res.data[i];
+						$(".store-list ul").append("<li><img src=\"" + data.smallImgurl + "\">" +
+							"<h4>" + data.smallName + "</h4></li>");
+					}
+					$(".store-list li").unbind("click").click(function() {
+						window.location.href = "store.html";
+					});
+				} else {
+					alert(res.msg);
+				}
+			});
+		}
+	</script>
+
+</html>

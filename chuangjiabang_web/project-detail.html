@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-项目详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.main,
+			.solution,.approve {
+				padding: 10px 20px;
+			}
+			
+			.auto-progress-bar {
+				margin-bottom: 30px;
+			}
+			
+			.step {
+				float: left;
+				position: relative;
+				height: 80px;
+			}
+			
+			.active {
+				color: #107AE3;
+			}
+			
+			.active p .complete-time {
+				display: inline-block;
+			}
+			
+			.active .line,
+			.active .circle {
+				background: #107AE3;
+			}
+			
+			.step p {
+				position: absolute;
+				top: 30px;
+				left: 0px;
+				text-align: center;
+				width: 200px;
+			}
+			
+			.line {
+				width: 100px;
+				display: inline-block;
+				height: 3px;
+				background: #E1E1E1;
+				margin: 0 -5px 8px 0px;
+			}
+			
+			.circle {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				background: #E1E1E1;
+			}
+			
+			.complete-time {
+				font-size: 12px;
+				display: none;
+			}
+			
+			.detail-txt b {
+				font-size: 16px;
+			}
+			
+			.detail-txt img {
+				margin-left: 10px;
+			}
+			
+			.detail-txt span {
+				color: #666;
+				/*font-weight: bold;*/
+			}
+			
+			.detail-describe {
+				text-indent: 2rem;
+				display: inline-block;
+			}
+			
+			.solution .view-img {
+				display: inline-block;
+				width: 85px;
+				height: 26px;
+				line-height: 26px;
+				border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				background: #EFEFEF;
+				font-size: 12px;
+				color: #107AE3;
+				padding-left: 5px;
+			}
+			
+			.solution .view-img img {
+				width: 20px;
+				height: 17px;
+				margin-right: 5px;
+			}
+			
+			.solution i {
+				color: #107AE3;
+			}
+			.add-img img{
+				width: 70px;
+				height: 70px;
+				margin-right: 10px;
+			}
+			.add-img {
+				color: #A1A1A1;
+			}
+			.btn-save {
+				display: block;
+				margin: 10px auto;
+			}
+			.approve p{
+				text-indent: 2rem;
+				margin-bottom: 20px;
+			}
+			textarea.refuse-reason{
+				resize: none;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="main">
+				<div class="auto-progress-bar">
+					<div class="step active" data-num="1">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<p class="">
+							<span class="text-center">甲提交</span><br><span class="complete-time">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="step active" data-num="2">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<p>
+							<span class="text-center">乙接收</span><br><span class="complete-time">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="step" data-num="3">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<p>
+							<span class="text-center">乙报价</span><br><span class="complete-time hide">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="step" data-num="4">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<p>
+							<span class="text-center">甲确认</span><br><span class="complete-time hide">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="step" data-num="5">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<p>
+							<span class="text-center">实施中</span><br><span class="complete-time hide">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="step active" data-num="6">
+						<span class="line"></span>
+						<span class="circle"></span>
+						<span class="line" style="margin-left: -5px;"></span>
+						<p>
+							<span class="text-center">甲验收</span><br><span class="complete-time hide">2017.6.2 11:23:57</span></p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<p class="detail-txt"><b>问题编号：</b><span>问题编号</span></p>
+				<p class="detail-txt"><b>船　　名：</b><span>问题编号</span></p>
+				<p class="detail-txt"><b>公&nbsp;&nbsp;司&nbsp;&nbsp;名：</b><span>问题编号</span></p>
+				<p class="detail-txt"><b>联系信息：</b><span>问题编号</span></p>
+				<p class="detail-txt"><b>服务地点：</b><span>20133263</span></p>
+				<p class="detail-txt"><b>服务时间：</b><span>20133263</span></p>
+				<p class="detail-txt"><b>服务内容：</b><span>20133263</span></p>
+				<p class="detail-txt"><b>详细描述：</b><br><span class="detail-describe">昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦昌平打款的阿斯顿萨达是多少的撒旦</span></p>
+				<p class="detail-txt"><img class="img-thumbnail" src="images/add_1.png" /><img class="img-thumbnail" src="images/add_1.png" /></p>
+				<a href="javascript:;" class="download-file">【下载附件】</a>
+			</div>
+			<div class="solution hide">
+				<h4>解决方案：</h4>
+				<P>这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案这是解决方案</P>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>人工费用：</h4>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>物料清单：</h4>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>报价单：</h4>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>完工单：</h4>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>结算单：</h4>
+				<a href="javascript:;" class="view-img"><img src="images/img-icon.png" />查看图片</a>
+				<h4>收款明细：</h4>
+				<p>应收款（元）：<i>100</i></p>
+				<p>已收款（元）：<i>100</i></p>
+				<p>待收款（元）：<i>100</i></p>
+				<a href="javascript:;" class="add-img"><img src="images/photo_add.png">添加收款凭证</a>
+				<input type="button" value="保存" class="btn btn-primary btn-save" />
+			</div>
+			<div class="approve hide">
+				<h4 class="col-red">驳回原因：</h4>
+				<p>驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因驳回原因</p>
+				<input type="button" class="btn btn-primary btn-sm btn-agree" id="" value="同意" />
+				<input type="button" class="btn btn-primary btn-sm btn-refuse" id="" value="拒绝" />
+			</div>
+		</div>
+		<div class="refuse-page hide">
+			<h4>填写拒绝原因：</h4>
+			<textarea class="form-control refuse-reason" placeholder="拒绝原因"></textarea>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		$(function(){
+			$(".btn-refuse").click(function(){
+				var modalId=$.modal().show("拒绝原因",".refuse-page",function(){
+					$("#"+modalId).modal("hide");
+				});
+			});
+		});
+		
+	</script>
+</html>

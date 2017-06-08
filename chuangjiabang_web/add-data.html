@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>船家帮-</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			.add-indent,
+			.add-project,
+			.add-commodity {
+				background: #F7F7F7;
+				padding-left: 20px;
+				margin: 0 80px;
+				padding-top: 20px;
+			}
+			
+			.form-group input {
+				display: inline-block;
+				width: 400px;
+			}
+			
+			.form-group textarea {
+				display: inline-block;
+				vertical-align: text-top;
+				resize: none;
+				width: 400px;
+				height: 200px;
+			}
+			
+			.add-img img {
+				width: 70px;
+				height: 70px;
+				margin-bottom: 10px;
+				margin-left: 80px;
+			}
+			
+			.add-commodity textarea {
+				margin-left: 73px;
+			}
+			
+			.btn-post {
+				/*margin-bottom: 20px;*/
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="top">
+				<p class="pull-left"><span class="user-name col-red">名称（客户）</span>|
+					<a href="javascript:;" class="login-out" onclick="loginOut()">退出</a>
+				</p>
+				<p class="pull-right"><span class="message">消息<i class="col-red">(22)</i></span>|
+					<a href="user-center.html">个人中心</a>
+				</p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="logo">
+				<a href="main.html">
+					<img src="images/logo_login.png" class="logo-img" />
+					<img src="images/company-name.png" class="logo-name"></a>
+			</div>
+			<div class="add-indent">
+				<!--新增订单-->
+				<div class="form-group">
+					<label class="control-label">标　　题：</label>
+					<input type="text" class="form-control" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">详细描述：</label>
+					<textarea class="form-control" placeholder="请输入" /></textarea>
+				</div>
+				<input type="button" class="btn btn-primary btn-post" value="派单" />
+			</div>
+			<div class="add-project">
+				<!--新增项目-->
+				<div class="form-group">
+					<label class="control-label">名　　称：</label>
+					<input type="text" class="form-control" placeholder="请输入项目名称" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">项目编号：</label>
+					<input type="text" class="form-control" placeholder="请输入项目编号" />
+				</div>
+				<h5><b>购物清单：</b></h5>
+				<a href="javascript:;" class="add-img"><img src="images/photo_add.png"></a><br>
+				<input type="button" class="btn btn-primary btn-post" value="派单" />
+			</div>
+			<div class="add-commodity">
+				<!--新增商品-->
+				<div class="form-group">
+					<label class="control-label">标　　题：</label>
+					<input type="text" class="form-control" placeholder="请输入" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">详细描述您的宝贝：</label><br>
+					<textarea class="form-control" placeholder="请输入" /></textarea>
+				</div>
+				<div class="form-group">
+					<label class="control-label">上传商品照片：</label><br>
+					<a href="javascript:;" class="add-img"><img src="images/photo_add.png"> </a>
+					<ul class="commodity-img-list"></ul>
+				</div>
+				<div class="form-group">
+					<label class="control-label">型　　号：</label>
+					<input type="text" class="form-control" placeholder="请输入商品型号" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">品　　牌：</label>
+					<input type="text" class="form-control" placeholder="请输入商品品牌" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">产　　地：</label>
+					<input type="text" class="form-control" placeholder="请输入商品产地" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">新旧程度：</label>
+					<input type="text" class="form-control" placeholder="请输入新旧程度" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">价 格(元)：</label>
+					<input type="text" class="form-control" placeholder="请输入商品价格" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">库存数量：</label>
+					<input type="text" class="form-control" placeholder="请输入库存数量" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">供货周期：</label>
+					<input type="text" class="form-control" placeholder="请输入供货周期" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">产品介绍图：</label><br />
+					<a href="javascript:;" class="add-img"><img src="images/photo_add.png"> </a>
+					<ul class="commodity-img-list"></ul>
+				</div>
+				<input type="button" class="btn btn-primary btn-post" value="确认发布" />
+				<input type="file" id="file" value="上传" onclick="updata()" />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		function updata() {
+//			$.aj
+		}
+	</script>
+
+</html>
